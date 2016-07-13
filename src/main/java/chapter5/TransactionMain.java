@@ -1,9 +1,11 @@
 package chapter5;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.joining;
@@ -71,5 +73,16 @@ public class TransactionMain {
                 .ifPresent(t -> System.out.println(t.getValue()));
         transactionList.stream().map(Transaction::getValue).reduce(Integer::min).ifPresent(System.out::println);
         transactionList.stream().min(comparing(Transaction::getValue)).ifPresent(System.out::println);
+
+        System.out.println(transactionList.stream().mapToInt(Transaction::getValue).sum());
+
+        IntStream intStream = transactionList.stream().mapToInt(Transaction::getValue);
+        Stream<Integer> stream = intStream.boxed();
+        System.out.println(stream);
+
+
+        OptionalInt maxTransaction = transactionList.stream().mapToInt(Transaction::getValue).max();
+        System.out.println(maxTransaction.orElse(-1));
+
     }
 }

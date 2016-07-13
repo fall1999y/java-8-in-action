@@ -21,5 +21,6 @@ public class ReduceMain {
         numbers.stream().reduce(Integer::min).ifPresent(System.out::println);
         menu.stream().map(d -> 1).reduce(Integer::sum).ifPresent(System.out::println);
         System.out.println(menu.stream().count());
+
     }
 }
