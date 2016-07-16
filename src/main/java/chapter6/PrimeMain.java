@@ -12,8 +12,8 @@ import static java.util.stream.Collectors.partitioningBy;
 public class PrimeMain {
 
     public boolean isPrime(int candidate) {
-        int cadidateRoot = (int) Math.sqrt((double) candidate);
-        return IntStream.rangeClosed(2, cadidateRoot).noneMatch(i -> candidate % i == 0);
+        int candidateRoot = (int) Math.sqrt((double) candidate);
+        return IntStream.rangeClosed(2, candidateRoot).noneMatch(i -> candidate % i == 0);
     }
 
     public Map<Boolean, List<Integer>> partitionPrime(int n) {
