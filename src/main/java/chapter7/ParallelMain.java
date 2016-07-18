@@ -23,6 +23,7 @@ public class ParallelMain {
         System.out.println(measureSumPref(ParallelMain::parallelRangedSum, 10_000_000));
         System.out.println(measureSumPref(ParallelMain::sideEffectSum, 10_000_000));
         System.out.println(measureSumPref(ParallelMain::sideEffectParallelSum, 10_000_000));
+        System.out.println(measureSumPref(ForkJoinSumCalculator::forkJoinSum, 10_000_000));
     }
 
     public static long rangedSum(long n) {
