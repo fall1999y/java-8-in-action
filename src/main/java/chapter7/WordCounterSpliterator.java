@@ -25,12 +25,12 @@ public class WordCounterSpliterator implements Spliterator<Character> {
     @Override
     public Spliterator<Character> trySplit() {
         int currentSize = string.length() - currentChar;
-        if(currentSize < 10) {
+        if (currentSize < 10) {
             return null;
         }
 
-        for (int splitPos = currentSize /2 + currentChar; splitPos < string.length(); splitPos ++) {
-            if(Character.isWhitespace(string.charAt(splitPos))) {
+        for (int splitPos = currentSize / 2 + currentChar; splitPos < string.length(); splitPos++) {
+            if (Character.isWhitespace(string.charAt(splitPos))) {
                 Spliterator<Character> spliterator = new WordCounterSpliterator(string.substring(currentChar,
                         splitPos));
                 currentChar = splitPos;

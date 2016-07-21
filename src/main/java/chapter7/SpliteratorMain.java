@@ -1,7 +1,6 @@
 package chapter7;
 
 import java.util.Spliterator;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
@@ -13,13 +12,13 @@ public class SpliteratorMain {
     public static int countWordsIteratively(String s) {
         int counter = 0;
         boolean lastSpace = true;
-        for(char c : s.toCharArray()) {
-            if(Character.isWhitespace(c)) {
+        for (char c : s.toCharArray()) {
+            if (Character.isWhitespace(c)) {
                 lastSpace = true;
 
             } else {
-                if(lastSpace) {
-                    counter ++;
+                if (lastSpace) {
+                    counter++;
                 }
                 lastSpace = false;
             }
@@ -30,8 +29,9 @@ public class SpliteratorMain {
 
     static final String SENTENCE =
             " Nel    mezzo del cammin    di nostra   vita " +
-                    "mi     ritrovai in una    selva oscura"+
+                    "mi     ritrovai in una    selva oscura" +
                     " ch    la   dritta  via era    smarrita ";
+
     public static void main(String[] args) {
         System.out.println(countWordsIteratively(SENTENCE));
 
@@ -46,7 +46,8 @@ public class SpliteratorMain {
     }
 
     private static int countWord(Stream<Character> stream) {
-        WordCounter wordCounter = stream.reduce(new WordCounter(0, true), WordCounter::accumulate, WordCounter::combine);
+        WordCounter wordCounter = stream.reduce(new WordCounter(0, true), WordCounter::accumulate,
+                WordCounter::combine);
         return wordCounter.getCounter();
     }
 }
