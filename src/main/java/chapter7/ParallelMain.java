@@ -42,7 +42,7 @@ public class ParallelMain {
     }
 
     public static long iterativeSum(long n) {
-        long result = 0;
+        long result =  0;
         for (long i = 1L; i <= n; i++) {
             result += i;
         }
